@@ -76,4 +76,5 @@ tick = () ->
 
     if query then life query else null
 
-window.setInterval tick, 500
+window.setTimeout (() -> window.setInterval tick, 1000), 1500
+

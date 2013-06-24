@@ -111,6 +111,8 @@
     }
   };
 
-  window.setInterval(tick, 500);
+  window.setTimeout((function() {
+    return window.setInterval(tick, 1000);
+  }), 1500);
 
 }).call(this);
