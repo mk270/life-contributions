@@ -1,5 +1,7 @@
 (function() {
-  var life, tick;
+  var copyright_boilerplate, life, tick;
+
+  copyright_boilerplate = "Life Contributions, a Coffeescript life implementation for Github pages\n\nCopyright (C) 2013  Martin Keegan\n\nThis programme is free software; you may redistribute and/or modify\nit under the terms of the Apache License v2.0";
 
   life = function(weeks) {
     var board, cell_live, cells, col_live, colour_of_day, current, directions, neighbours, regenerate, set_tile, style_means_live, tile, v, x, x0, xmax, y, y0, ymax, _results;

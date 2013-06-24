@@ -1,4 +1,13 @@
 
+copyright_boilerplate = """
+  Life Contributions, a Coffeescript life implementation for Github pages
+
+  Copyright (C) 2013  Martin Keegan
+
+  This programme is free software; you may redistribute and/or modify
+  it under the terms of the Apache License v2.0
+"""
+
 life = (weeks) ->
     x0 = 0
     y0 = 0
