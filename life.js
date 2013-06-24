@@ -1,18 +1,25 @@
+(function() {
+  var life, tick;
 
-console.log("life begins at onLoad()");
+  console.log("life begins at onLoad()");
 
-var tick = function() {
-  console.log("tick");
+  life = function(query) {
+    console.log("life()");
+    return null;
+  };
 
-  var query = document.querySelector("div#contributions-calendar div.js-graph svg");
-  if (!query) {
-	return;
-  }
+  tick = function() {
+    var query, selector;
+    console.log("tick");
+    selector = "div#contributions-calendar div.js-graph svg";
+    query = document.querySelector(selector);
+    if (query) {
+      return life(query);
+    } else {
+      return null;
+    }
+  };
 
-  var query = document.querySelector("svg g g");
+  window.setInterval(tick, 1000);
 
-  // 
-  
-};
-
-window.setInterval(tick, 1000);
+}).call(this);
