@@ -13,6 +13,8 @@ life = (weeks) ->
     y0 = 0
     xmax = 54
     ymax = 6
+    dead = "eeeeee;"
+    alive = "d6e685;"
     
     directions = [
         [-1, -1],  [0, -1],  [1, -1],
@@ -22,13 +24,13 @@ life = (weeks) ->
 
     colour_of_day = (day) ->
         if not day
-        then "eeeeee;"
+        then dead
         else
             style = day.getAttribute "style"
             style.split(" #")[1]
 
     style_means_live = (style) ->
-        style != "eeeeee;"
+        style != dead
 
     tile = (x, y) ->
         weeks[x]?.childNodes[y] # hack: assuming tiles in chrono order
@@ -68,7 +70,7 @@ life = (weeks) ->
             current = board[x]?[y] or false
             v = regenerate(x, y, current, board)
             if v != current
-                set_tile(x, y, if v then "d6e685;" else "eeeeee;")
+                set_tile(x, y, if v then alive else dead)
 
 tick = () ->
     selector = "div#contributions-calendar div.js-graph svg g g"

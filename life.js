@@ -4,23 +4,25 @@
   copyright_boilerplate = "Life Contributions, a Coffeescript life implementation for Github pages\n\nCopyright (C) 2013  Martin Keegan\n\nThis programme is free software; you may redistribute and/or modify\nit under the terms of the Apache License v2.0";
 
   life = function(weeks) {
-    var board, cell_live, cells, col_live, colour_of_day, current, directions, neighbours, regenerate, set_tile, style_means_live, tile, v, x, x0, xmax, y, y0, ymax, _results;
+    var alive, board, cell_live, cells, col_live, colour_of_day, current, dead, directions, neighbours, regenerate, set_tile, style_means_live, tile, v, x, x0, xmax, y, y0, ymax, _results;
     x0 = 0;
     y0 = 0;
     xmax = 54;
     ymax = 6;
+    dead = "eeeeee;";
+    alive = "d6e685;";
     directions = [[-1, -1], [0, -1], [1, -1], [-1, 0], [1, 0], [-1, 1], [0, 1], [1, 1]];
     colour_of_day = function(day) {
       var style;
       if (!day) {
-        return "eeeeee;";
+        return dead;
       } else {
         style = day.getAttribute("style");
         return style.split(" #")[1];
       }
     };
     style_means_live = function(style) {
-      return style !== "eeeeee;";
+      return style !== dead;
     };
     tile = function(x, y) {
       var _ref;
@@ -89,7 +91,7 @@
           current = ((_ref = board[x]) != null ? _ref[y] : void 0) || false;
           v = regenerate(x, y, current, board);
           if (v !== current) {
-            _results2.push(set_tile(x, y, v ? "d6e685;" : "eeeeee;"));
+            _results2.push(set_tile(x, y, v ? alive : dead));
           } else {
             _results2.push(void 0);
           }
